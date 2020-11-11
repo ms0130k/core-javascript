@@ -1,8 +1,8 @@
 var a = function () {
-  var argv = Array.prototype.slice.call(arguments);
-  argv.forEach(function (arg) {
-    console.log(arg);
-  });
+	var argv = Array.prototype.slice.call(arguments);
+	argv.forEach(function (arg) {
+		console.log(arg);
+	});
 };
 a(1, 2, 3);
 a();
@@ -15,10 +15,10 @@ document.body.innerHTML = '<div>a</div><div>b</div><div>c</div>';
 var nodeList = document.querySelectorAll('div');
 var nodeArr = Array.prototype.slice.call(nodeList);
 nodeArr.forEach(function (node) {
-  console.log(node);
+	console.log(node);
 });
 nodeList.forEach((node, i) => {
-  console.log(i, node);
+	console.log(i, node);
 });
 console.log(nodeList);
 console.log(nodeArr);
@@ -57,13 +57,13 @@ arr.reduce(callback( accumulator, currentValue[, index[, array]] ) {
 */
 console.log('>>> str: ', str);
 var newStr = Array.prototype.reduce.apply(str, [
-  (string, char, i, arr) => string + char + i + arr[i],
-  '',
+	(string, char, i, arr) => string + char + i + arr[i],
+	'',
 ]);
 console.log('>>> reduce_apply: ', newStr);
 
 var newStr = Array.prototype.reduce.call(
-  str,
-  (string, char, i, arr) => string + char + i + arr[i]
+	str,
+	(string, char, i, arr) => string + char + i + arr[i]
 );
 console.log('>>> reduce_call: ', newStr);
