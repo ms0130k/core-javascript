@@ -33,4 +33,3 @@ console.log('=================');
 var arr = [1, 2, 3, 9];
 var max = arr.reduce((acc, cur) => Math.max(acc, cur));
 console.log(max);
-console.log('git update');
