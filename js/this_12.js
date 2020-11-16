@@ -9,3 +9,6 @@ bindFunc1(5, 6, 7, 8);
 var bindFunc2 = func.bind({ x: 2 }, 4, 5);
 bindFunc2(6, 7);
 bindFunc2(8, 9);
+
+var bindFunc3 = func.bind({ x: 3 }, 4, 5, 6, 7);
+bindFunc3();
