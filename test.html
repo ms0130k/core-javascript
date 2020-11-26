@@ -1,0 +1,119 @@
+<html>
+	<head>
+		<title>ox퀴즈</title>
+	</head>
+	<body>
+		<div
+			id="quest"
+			style="
+				width: 100vw;
+				height: 400px;
+				font-size: 30px;
+				background-color: yellow;
+			"
+		></div>
+		<div style="width: 100vw; height: 200; background-color: aliceblue">
+			<div
+				id="true"
+				style="width: 50vw; height: 200; background-color: green; float: left"
+				onclick="clickCheck(true);"
+			>
+				<p style="font-size: 90px">o</p>
+			</div>
+			<div
+				id="false"
+				style="width: 50vw; height: 200; background-color: red; float: left"
+				onclick="clickCheck(false);"
+			>
+				<p style="font-size: 90px">x</p>
+			</div>
+		</div>
+	</body>
+	<script>
+		var quizList = [
+			{
+				score: 5,
+				quest:
+					'1. 조세는 국가 또는 지방자치단체가 재정수입을 조달할 목적으로 일정한 과세요건을 충족하는 자에게 반대급부 없이 부과하는 금전지급채무를 말한다. ',
+				answer: true,
+			},
+			{
+				score: 5,
+				quest:
+					'2.조세법률관계는 조세채권채무관계라고도 하는데 과세관청에 대해서는 「국세기본법」상 세무조사시 납세자에 대한 질문조사권과 「국세징수법」상 자력집행권 등이 부여되어 있는 점에서 사법상의 법률관계와 차이를 보인다. ',
+				answer: true,
+			},
+			{
+				score: 5,
+				quest:
+					'3.조세채권채무관계의 발생원인이 되는 법률요건을 과세요건이라고 하는데, 과세요건에는 과세대상, 납세의무자., 과세표준 및 세율의 4가지가 있다. ',
+				answer: true,
+			},
+			{
+				score: 5,
+				quest:
+					'4.수평적 평등이란 담세능력이 큰 납세자는 담세능력이 작은 납세자 보다 많은 조세를 부담해야 한다는 원칙을 말하고,수직적 평등이란 담세능력이 동일한 납세자에 대해서는 동일한 조세를 부과해야 한다는 원칙을 말한다.',
+				answer: false,
+			},
+			{
+				score: 5,
+				quest:
+					'5.현행 「법인세법」 또는 「소득세법」 등에서 정하고 있는 누진세율은 수직적 공평을 실현하기 위한 것이며, 개별세법에서 규정하고 있는 과세표준의 공평한 측정은 수평적 공평을 실현하기 위한 것이다.',
+				answer: true,
+			},
+		];
+
+		var startQuiz = 0;
+		var score = 0;
+		var wrongAnswer = [];
+
+		function renderQuest() {
+			if (startQuiz < quizList.length) {
+				document.getElementById('quest').innerHTML = quizList[startQuiz].quest;
+			} else {
+				console.log(wrongAnswer);
+			}
+		}
+		function clickCheck(bool) {
+			if (startQuiz >= quizList.length) {
+				return;
+			}
+			if (bool == quizList[startQuiz].answer) {
+				score += quizList[startQuiz].score;
+				alert('정답입니다! 당신의 점수는 ' + score);
+			} else {
+				wrongAnswer.push(quizList[startQuiz].quest);
+				alert(
+					'틀렸습니다! 당신의 점수는 ' +
+						score +
+						'정답은 ' +
+						quizList[startQuiz].answer +
+						'입니다'
+				);
+			}
+			if (startQuiz < quizList.length - 1) {
+				renderQuest();
+			}
+
+			if (startQuiz === quizList.length - 1) {
+				alert(
+					`수고하셨습니다! 당신의 최종 점수는 ${score}, 맞힌 개수는 ${
+						score / 5
+					}개 입니다`
+				);
+				alert(
+					'수고하셨습니다. 당신의 최종점수는' +
+						score +
+						', 맞힌 개수는 ' +
+						score / 5 +
+						'개 입니다'
+				);
+			}
+
+			startQuiz++;
+			renderQuest();
+		}
+
+		renderQuest();
+	</script>
+</html>
