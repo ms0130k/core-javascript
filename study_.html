@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <body>
+  <title>   </title>
+  </head>
+  <script>
+  
+    // alert(document.title);
+   function checkJumin(){
+
+
+
+
+		checkGender();
+
+
+
+
+   var obj=document.getElementById('jumin');
+   var jumin=obj.value;
+   
+   }
+   
+   
+   
+         function checkname() { 
+					 test();
+      var inTag = document.getElementById('t1');  
+      var listPlace = document.getElementById('t2'); 
+      var  newPlace = document.createElement('li');            
+      var  placeNode = document.createTextNode(inTag.value);   
+      newPlace.appendChild(placeNode); 
+      listPlace.appendChild(newPlace); 
+			inTag.value='';  
+			
+
+
+			}
+			function test() {
+				document.getElementById('test').innerText = document.getElementById('t1').value;
+			}
+  </script>
+
+   
+   1.이 름  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+    <input type="text" id='t1'/>
+   <button onclick="checkname()">1번 버튼
+   </button><br>
+   2.주민번호입력: <input type= "password" id='jumin'/>
+   <button onclick="checkJumin()">2번 버튼</button><br>
+	 3.성별:
+	 
+
+
+
+
+	 <input type="radio" name="gender" value="male">남자
+    <input type="radio" name="gender" value="female">여자
+
+
+
+   
+   
+   <br>
+   4.학생이름 <div id="t2">
+   
+   
+	 </div>
+	 <div>5. 학생이름 <span id="test"></span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// https://riptutorial.com/ko/java/example/569/%EB%AC%B8%EC%9E%90%EC%97%B4%EC%97%90%EC%84%9C-n-%EB%B2%88%EC%A7%B8-%EB%AC%B8%EC%9E%90-%EA%B0%80%EC%A0%B8-%EC%98%A4%EA%B8%B0
+// 저는 'javascript n번째 문자' 라고 구글 검색해서 위 사이트를 찾아서 작성했습니다.
+function checkGender() {
+	const juminNumber = document.getElementById('jumin');
+	const genderNumber = juminNumber.value.charAt(6);
+	const genderInput = document.querySelectorAll('input[name=gender]');
+
+	if (genderNumber === '1') {
+		genderInput[0].checked = true;
+	} else {
+		genderInput[1].checked = true;
+	}
+}
+</script>
+
+
+
+</body>
+
+</html>
