@@ -61,3 +61,15 @@ Click [here](http://academy.dream-coding.com/)
 |  Cell1 |    Cell2    |
 |  Cell1 |    Cell2    |
 |  Cell1 |    Cell2    |
+
+<!-- Code -->
+
+To print message in the console, use `console.log('your message')` and ...
+
+```ts
+console.log('your message');
+```
+
+**Github Flavored Markdown**  
+https://guides.github.com/features/mastering-markdown/  
+https://github.com/dream-ellie/markdown
