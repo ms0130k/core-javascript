@@ -1,19 +1,37 @@
-const target = document.getElemntById('target');
-target.addEventListener('onmouseover', function (e) {
-	alert();
-});
-// const num = [1, 2, 3, 4, 5, 6, 9, 8, 7, 0];
-// let phoneNum = '';
+class Student {
+	constructor(name, age, enrolled, score) {
+		this.name = name;
+		this.age = age;
+		this.enrolled = enrolled;
+		this.score = score;
+	}
+}
 
-// phoneNum += '(';
-// for (var i = 0; i < 3; i++) phoneNum += num[i];
-// phoneNum += ')';
+const students = [
+	new Student('A', 20, true, 'c'),
+	new Student('B', 28, false, 'a'),
+	new Student('C', 30, true, 'b'),
+];
 
-// for (var i = 3; i < 6; i++) phoneNum += num[i];
-// phoneNum += '-';
+console.log(students);
 
-// for (var i = 6; i < num.length; i++) phoneNum += num[i];
+const result = students.reduce((prev, curr) => prev + curr.score, 0);
+console.log(result);
 
-// console.log(phoneNum);
+console.clear();
 
-// console.log('------------------------');
+console.log(students.map((student) => student.score).toString());
+console.log(students.map((student) => student.score).join(' and '));
+console.log(
+	students.map((student) => student.score).join(',') ===
+		students.map((student) => student.score).toString()
+);
+console.clear();
+
+console.log(
+	students
+		.map((student) => student.score)
+		.sort()
+		.reverse()
+		.join(',')
+);
