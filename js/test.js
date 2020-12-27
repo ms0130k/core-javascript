@@ -19,6 +19,7 @@ const result = students.reduce((prev, curr) => prev + curr.score, 0);
 console.log(result);
 
 console.clear();
+console.clear();
 
 console.log(students.map((student) => student.score).toString());
 console.log(students.map((student) => student.score).join(' and '));
