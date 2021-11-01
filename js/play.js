@@ -1,10 +1,33 @@
 'use strict';
-function outerFunc(arg1, arg2) {
-  var local = 8;
-  function innerFunc(innerArg) {
-    console.log((arg1 + arg2) / (innerArg + local));
-  }
-  return innerFunc;
+
+function HelloFunc(func) {
+  this.greeting = 'hello';
 }
-var exam1 = outerFunc(2, 4);
-exam1(2);
+HelloFunc.prototype.call = function (func) {
+  func ? func(this.greeting) : this.func(this.greeting);
+};
+
+const userFunc = function (greeting) {
+  console.log(greeting);
+};
+
+const hello = new HelloFunc();
+hello.func = userFunc;
+hello.call();
+
+function NewObj(obj, name) {
+  obj.func = saySomething(this, 'who', name);
+}
+
+function saySomething(obj, methodName, name) {
+  return function (greeting) {
+    obj[methodName](greeting, name);
+  };
+}
+
+NewObj.prototype.who = function (greeting, name) {
+  console.log(`${greeting} ${name}`);
+};
+
+new NewObj(hello, 'shock');
+hello.call();
