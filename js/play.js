@@ -47,3 +47,33 @@ new Animal('shock').walk();
 const Tiger = function (arg) {};
 inherit(Animal, Tiger);
 new Tiger('tiger').walk();
+
+// -----------------
+(function () {
+  const { $A } = window;
+
+  return {
+    meta: {
+      name: 'c$PdfViewer',
+      extends: 'markup://aura:component',
+    },
+    controller: {
+      fnLoadpdf: function (component, event, helper) {
+        helper.loadpdf(component, event);
+      },
+    },
+    helper: {
+      loadpdf: function (component, event) {
+        try {
+          var pdfData = component.get('v.pdfData');
+          var pdfjsframe = component.find('pdfFrame');
+          if (typeof pdfData != 'undefined') {
+            pdfjsframe.getElement().contentWindow.postMessage(pdfData, '*');
+          }
+        } catch (e) {
+          alert('Error: ' + e.message);
+        }
+      },
+    },
+  };
+})();
